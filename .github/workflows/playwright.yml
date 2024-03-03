@@ -49,7 +49,7 @@ jobs:
 
   deploy-project:
     runs-on: ubuntu-latest
-    needs: test
+    needs: build-project
     steps:
       - name: download build artifact
         uses: actions/download-artifact@v4
@@ -63,5 +63,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          branch: gh-pages
+          branch: master
           folder: build
