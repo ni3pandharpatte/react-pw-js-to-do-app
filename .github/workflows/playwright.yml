@@ -56,6 +56,7 @@ jobs:
         if: always()
         with:
           name: build
+          path: build/
           retention-days: 2
       - name: Check downloaded artifact files
         run: ls -R
@@ -63,5 +64,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          branch: master
-          path: build
+          branch: gh-pages
+          folder: build
