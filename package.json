@@ -1,7 +1,7 @@
 {
   "name": "todo-app",
   "version": "0.1.0",
-  "homepage": "https://EuJinnLucaShow.github.io/todo-app",
+  "homepage": "https://ni3pandharpatte.github.io/react-pw-js-to-do-app",
   "main": "src/index.js",
   "private": true,
   "dependencies": {
@@ -22,8 +22,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint:js": "eslint src/**/*.{js,jsx}"
   },
