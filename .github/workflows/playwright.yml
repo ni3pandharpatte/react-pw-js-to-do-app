@@ -56,8 +56,10 @@ jobs:
         if: always()
         with:
           name: build
-          path: ./build
-          retention-days: 30
+          path: build/
+          retention-days: 2
+      - name: Check downloaded artifact files
+        run: ls -R
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
