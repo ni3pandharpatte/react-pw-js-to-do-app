@@ -52,7 +52,7 @@ jobs:
     needs: test
     steps:
       - name: download build artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/download-artifact@v4
         if: always()
         with:
           name: build
