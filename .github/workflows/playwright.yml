@@ -56,7 +56,6 @@ jobs:
         if: always()
         with:
           name: build
-          path: build/
           retention-days: 2
       - name: Check downloaded artifact files
         run: ls -R
