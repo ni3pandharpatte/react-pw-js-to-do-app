@@ -1,12 +1,23 @@
 // @ts-nocheck
-import 'dotenv/config';
+// require('dotenv').config();
+import dotenv from 'dotenv';
 const { defineConfig, devices } = require('@playwright/test');
 
+dotenv.config({
+  path: `./.env.${process.env.ENV}`
+})
+
+//command to set environment variable $env:ENV="local"
+// Here $env is cmd command
+// ENV is environment variable
+// local is value of ENV variable
+// with this our dotenv file will be ./.env.local
+console.log(process.env.NODE_ENV);
+console.log(process.env.URL);
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -29,7 +40,7 @@ module.exports = defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    headless: process.env.NODE_ENV === 'PROD',
+    headless: !(process.env.NODE_ENV === 'DEV'),
     trace: 'on-first-retry',
   },
 
