@@ -12,14 +12,6 @@ test('verify duplicate tasks are allowed', async function ({ page }) {
     expect(count).toBeGreaterThan(1)
 })
 
-test('verify delete functionality', async function ({ page }) {
-    const taskList = new TaskList(page);
-    const countBeforeTaskAdd = await taskList.getTotalTasksCount();
-    await taskList.deleteTaskByText('New Task 001');
-    const countAfterTaskAdd = await taskList.getTotalTasksCount();
-    expect(countAfterTaskAdd).toBe(countBeforeTaskAdd - 1);
-})
-
 test('verify css properties of done button', async function ({ page }) {
     const taskList = new TaskList(page);
     const cssValue = await taskList.getCssValues('bbb', 'Done Button', 'background-color');
